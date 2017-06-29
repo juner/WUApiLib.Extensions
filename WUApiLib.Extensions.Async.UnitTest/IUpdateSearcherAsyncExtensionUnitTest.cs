@@ -54,9 +54,36 @@ namespace WUApiLib.Extensions.Async.UnitTest
             {
                 var state = e.GetWindowsUpdateHResult();
                 if (Enum.IsDefined(state.GetType(), state))
-                    Assert.Fail($"ERROR: {state}({(uint)state}) {state.GetDescription()}");
+                    Assert.Fail($"ERROR: {state}({(uint)state:x}) {state.GetDescription()}");
                 throw;
             }
+        }
+        [TestMethod]
+        [DataRow("Type != 'Driver'")]
+        [DataRow(null)]
+        public async Task SearchAsyncCancelTest(string criteria)
+        {
+            var Token = CancellationTokenSource.CreateLinkedTokenSource(TokenSource.Token,
+                new CancellationTokenSource(TimeSpan.FromSeconds(5)).Token).Token;
+            var exception = await Assert.ThrowsExceptionAsync<TaskCanceledException>(async () =>
+            {
+                try
+                {
+                    var Session = new UpdateSession();
+                    var Searcher = Session.CreateUpdateSearcher();
+                    var Result = string.IsNullOrEmpty(criteria)
+                        ? await Searcher.SearchAsync(Token)
+                        : await Searcher.SearchAsync(criteria, Token);
+                }
+                catch (COMException e)
+                {
+                    var state = e.GetWindowsUpdateHResult();
+                    if (Enum.IsDefined(state.GetType(), state))
+                        Assert.Fail($"ERROR: {state}({(uint)state:x}) {state.GetDescription()}");
+                    throw;
+                }
+            });
+            Assert.AreEqual(exception.CancellationToken, Token);
         }
     }
 }

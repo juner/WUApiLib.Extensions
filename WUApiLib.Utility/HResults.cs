@@ -11,6 +11,8 @@ namespace WUApiLib.Utility
     /// <summary>
     /// Windows Update Agent ResultCode
     /// https://technet.microsoft.com/en-us/library/cc720442.aspx
+    /// WUA Success and Error Codes
+    /// https://msdn.microsoft.com/ja-jp/library/windows/desktop/hh968413.aspx
     /// </summary>
     public enum HResult : uint
     {
@@ -144,6 +146,22 @@ namespace WUApiLib.Utility
         WU_E_SYSPREP_IN_PROGRESS = 0x80240041,
         [Description("The update service is no longer registered with AU.")]
         WU_E_UNKNOWN_SERVICE = 0x80240042,
+        [Description("No support for the WUA user interface.")]
+        WU_E_NO_UI_SUPPORT = 0x80240043,
+        [Description("Only administrators can perform this operation on per-computer updates.")]
+        WU_E_PER_MACHINE_UPDATE_ACCESS_DENIED = 0x80240044,
+        [Description("A search was attempted with a scope that is not currently supported for this type of search.")]
+        WU_E_UNSUPPORTED_SEARCHSCOPE = 0x80240045,
+        [Description("The URL does not point to a file.")]
+        WU_E_BAD_FILE_URL = 0x80240046,
+        [Description("The operation requested is not supported.")]
+        WU_E_NOTSUPPORTED = 0x80240047,
+        [Description("The featured update notification info returned by the server is invalid.")]
+        WU_E_INVALID_NOTIFICATION_INFO = 0x80240048,
+        [Description("The data is out of range.")]
+        WU_E_OUTOFRANGE = 0x80240049,
+        [Description("WUA operations are not available while operating system setup is running.")]
+        WU_E_SETUP_IN_PROGRESS = 0x8024004A,
         [Description("An operation failed due to reasons not covered by another error code.")]
         WU_E_UNEXPECTED = 0x80240FFF,
         [Description("Search may have missed some updates because the Windows Installer is less than version 3.1.")]
