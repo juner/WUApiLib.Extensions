@@ -23,6 +23,11 @@ namespace WUApiLib.Extensions.Async
         public static Task<IDownloadResult> DownloadAsync(this IUpdateDownloader downloader, Action<IDownloadProgress> progress, CancellationToken cancellationToken = default(CancellationToken))
         {
             var task = new TaskCompletionSource<IDownloadResult>();
+            if (cancellationToken.IsCancellationRequested)
+            {
+                task.TrySetCanceled(cancellationToken);
+                return task.Task;
+            }
             var job = null as IDownloadJob;
             var reg = null as CancellationTokenRegistration?;
             job = downloader.BeginDownload(new DownloadProgressChangedCallback(progress),
@@ -42,24 +47,13 @@ namespace WUApiLib.Extensions.Async
                     finally
                     {
                         job = null;
-                        _job2?.CleanUp();
-                        _job2 = null;
                         reg?.Dispose();
-                        reg = null;
                     }
                 }), null);
             reg = cancellationToken.Register(() =>
             {
                 task.TrySetCanceled(cancellationToken);
-                try
-                {
-                    if (job != null)
-                        downloader.EndDownload(job);
-                }
-                catch (Exception e)
-                {
-                    task.TrySetException(e);
-                }
+                job?.RequestAbort();
             });
             return task.Task;
         }

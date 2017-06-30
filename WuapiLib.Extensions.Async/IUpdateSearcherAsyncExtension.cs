@@ -22,8 +22,12 @@ namespace WUApiLib.Extensions.Async
         /// <returns></returns>
         public static Task<ISearchResult> SearchAsync(this IUpdateSearcher searcher, string criteria, CancellationToken cancellationToken = default(CancellationToken))
         {
-            cancellationToken.ThrowIfCancellationRequested();
             var task = new TaskCompletionSource<ISearchResult>();
+            if (cancellationToken.IsCancellationRequested)
+            {
+                task.TrySetCanceled(cancellationToken);
+                return task.Task;
+            }
             var job = null as ISearchJob;
             var reg = null as IDisposable;
             job = searcher.BeginSearch(criteria, new SearchCompletedCallback((_job, args) =>
@@ -42,24 +46,13 @@ namespace WUApiLib.Extensions.Async
                 finally
                 {
                     job = null;
-                    _job?.CleanUp();
-                    _job = null;
                     reg?.Dispose();
-                    reg = null;
                 }
             }), null);
             reg = cancellationToken.Register(() =>
             {
                 task.TrySetCanceled(cancellationToken);
-                try
-                {
-                    if (job != null)
-                        searcher.EndSearch(job);
-                }
-                catch (Exception e)
-                {
-                    task.TrySetException(e);
-                }
+                job?.RequestAbort();
             });
             return task.Task;
         }

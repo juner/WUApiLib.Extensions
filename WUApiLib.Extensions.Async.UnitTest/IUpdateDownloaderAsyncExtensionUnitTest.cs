@@ -55,7 +55,7 @@ namespace WUApiLib.Extensions.Async.UnitTest
             {
                 var state = e.GetWindowsUpdateHResult();
                 if (Enum.IsDefined(state.GetType(), state))
-                    Assert.Fail($"ERROR: {state}({(uint)state:x}) {state.GetDescription()}");
+                    Assert.Fail($"ERROR: {state}(0x{(uint)state:x}) {state.GetDescription()}");
                 throw;
             }
         }
@@ -83,7 +83,7 @@ namespace WUApiLib.Extensions.Async.UnitTest
             {
                 var state = e.GetWindowsUpdateHResult();
                 if (Enum.IsDefined(state.GetType(), state))
-                    Assert.Fail($"ERROR: {state}({(uint)state:x}) {state.GetDescription()}");
+                    Assert.Fail($"ERROR: {state}(0x{(uint)state:x}) {state.GetDescription()}");
                 throw;
             }
         }

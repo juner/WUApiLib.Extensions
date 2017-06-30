@@ -23,6 +23,11 @@ namespace WUApiLib.Extensions.Async
         public static Task<IInstallationResult> InstallAsync(this IUpdateInstaller installer, Action<IInstallationProgress> progress, CancellationToken cancellationToken = default(CancellationToken))
         {
             var task = new TaskCompletionSource<IInstallationResult>();
+            if (cancellationToken.IsCancellationRequested)
+            {
+                task.TrySetCanceled(cancellationToken);
+                return task.Task;
+            }
             var job = null as IInstallationJob;
             var reg = null as IDisposable;
             job = installer.BeginInstall(new InstallationProgressChangeCallback(progress),
@@ -43,24 +48,13 @@ namespace WUApiLib.Extensions.Async
                     finally
                     {
                         job = null;
-                        _job2?.CleanUp();
-                        _job2 = null;
                         reg?.Dispose();
-                        reg = null;
                     }
                 }), null);
             reg = cancellationToken.Register(() =>
             {
                 task.TrySetCanceled(cancellationToken);
-                try
-                {
-                    if (job != null)
-                        installer.EndInstall(job);
-                }
-                catch (Exception e)
-                {
-                    task.TrySetException(e);
-                }
+                job?.RequestAbort();
             });
             return task.Task;
         }
