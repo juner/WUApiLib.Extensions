@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WUApiLib.Utility.Extensions
+﻿namespace WUApiLib.Utility.Extensions
 {
     public static class COMExceptionExtension
     {
