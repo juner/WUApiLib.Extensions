@@ -3,6 +3,11 @@
     <ProjectGuid>{77F2F420-1548-42B3-9AC0-B2B886554BCD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>WUApiLib.Utility</PackageId>
+    <Version>1.0.0.0</Version>
+    <PackageTags>WUApiLib</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="WUApiLib" />

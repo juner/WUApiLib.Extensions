@@ -3,10 +3,11 @@
     <ProjectGuid>{A24F4B1A-3F37-442B-BF5C-2E7AC9AD2FAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
-  <PropertyGroup>
+    <PackageId>WUApiLib.Extensions.Async</PackageId>
     <Version>1.0.0.0</Version>
-    <Authors>juner</Authors>
+    <PackageTags>WUApiLib;Async</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="WUApiLib" />
