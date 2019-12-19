@@ -9,6 +9,8 @@ using System.Runtime.InteropServices;
 using WUApiLib.Utility.Extensions;
 using WUApiLib.Utility;
 using System.Threading;
+using System.Collections.Generic;
+using System.Collections.Immutable;
 
 namespace WUApiLib.Extensions.Async.UnitTest
 {
@@ -21,6 +23,9 @@ namespace WUApiLib.Extensions.Async.UnitTest
         {
             TokenSource = new CancellationTokenSource();
         }
+        public static ISet<HResult> Inconclusives = ImmutableHashSet.Create(new[] {
+            HResult.WU_E_NO_UPDATE,
+        });
         [TestCleanup]
         public void Cleanup()
         {
@@ -54,6 +59,8 @@ namespace WUApiLib.Extensions.Async.UnitTest
             catch (COMException e)
             {
                 var state = e.GetWindowsUpdateHResult();
+                if (Inconclusives.Contains(state))
+                    Assert.Inconclusive($"{state}(0x{(uint)state:x}) {state.GetDescription()}");
                 if (Enum.IsDefined(state.GetType(), state))
                     Assert.Fail($"ERROR: {state}(0x{(uint)state:x}) {state.GetDescription()}");
                 throw;
@@ -82,6 +89,8 @@ namespace WUApiLib.Extensions.Async.UnitTest
             catch (COMException e)
             {
                 var state = e.GetWindowsUpdateHResult();
+                if (Inconclusives.Contains(state))
+                    Assert.Inconclusive($"{state}(0x{(uint)state:x}) {state.GetDescription()}");
                 if (Enum.IsDefined(state.GetType(), state))
                     Assert.Fail($"ERROR: {state}(0x{(uint)state:x}) {state.GetDescription()}");
                 throw;
