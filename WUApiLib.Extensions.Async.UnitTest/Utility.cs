@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Security.Principal;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WUApiLib.Extensions.Async.UnitTest
 {
