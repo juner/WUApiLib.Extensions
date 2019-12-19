@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>WUApiLib.Utility</PackageId>
-    <Version>1.0.0.0</Version>
+    <Version>1.0.0.1</Version>
     <PackageTags>WUApiLib</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
