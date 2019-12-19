@@ -2,7 +2,8 @@
   <PropertyGroup>
     <ProjectGuid>{A24F4B1A-3F37-442B-BF5C-2E7AC9AD2FAD}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoWarn>3305</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <Version>1.0.0.0</Version>

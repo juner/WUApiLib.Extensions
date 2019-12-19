@@ -2,7 +2,8 @@
   <PropertyGroup>
     <ProjectGuid>{77F2F420-1548-42B3-9AC0-B2B886554BCD}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoWarn>3305</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <COMReference Include="WUApiLib">
