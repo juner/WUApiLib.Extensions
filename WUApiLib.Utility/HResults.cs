@@ -4,10 +4,10 @@ using System.Reflection;
 namespace WUApiLib.Utility
 {
     /// <summary>
-    /// Windows Update Agent ResultCode
-    /// https://technet.microsoft.com/en-us/library/cc720442.aspx
+    /// Appendix G: Windows Update Agent Result Codes
+    /// https://docs.microsoft.com/en-us/security-updates/windowsupdateservices/18128076
     /// WUA Success and Error Codes
-    /// https://msdn.microsoft.com/ja-jp/library/windows/desktop/hh968413.aspx
+    /// https://docs.microsoft.com/en-us/windows/win32/wua_sdk/wua-success-and-error-codes-
     /// </summary>
     public enum HResult : uint
     {
@@ -451,20 +451,20 @@ namespace WUApiLib.Utility
         WU_E_INVENTORY_WMI_ERROR = 0x80249005,
         [Description("Automatic Updates was unable to service incoming requests.")]
         WU_E_AU_NOSERVICE = 0x8024A000,
-        [Description("The old version of the Automatic Updates client has stopped because the WSUS server has been upgraded.WU_E_AU_NONLEGACYSERVE")]
-        R = 0x8024A002,
+        [Description("The old version of the Automatic Updates client has stopped because the WSUS server has been upgraded.")]
+        WU_E_AU_NONLEGACYSERVER = 0x8024A002,
         [Description("The old version of the Automatic Updates client was disabled.")]
         WU_E_AU_LEGACYCLIENTDISABLED = 0x8024A003,
         [Description("Automatic Updates was unable to process incoming requests because it was paused.")]
         WU_E_AU_PAUSED = 0x8024A004,
-        [Description("No unmanaged service is registered with AU.WU_E_AU_NO_REGISTERED_SERVIC")]
-        E = 0x8024A005,
-        [Description("An Automatic Updates error not covered by another WU_E_AU* code.")]
+        [Description("No unmanaged service is registered with AU.")]
+        WU_E_AU_NO_REGISTERED_SERVICE = 0x8024A005,
+        [Description("An Automatic Updates error not covered by another WU_E_AU * code.")]
         WU_E_AU_UNEXPECTED = 0x8024AFFF,
         [Description("A driver was skipped.")]
         WU_E_DRV_PRUNED = 0x8024C001,
-        [Description("A property for the driver could not be found. It may not conform with required specifications.WU_E_DRV_NOPROP_OR_LEGAC")]
-        Y = 0x8024C002,
+        [Description("A property for the driver could not be found. It may not conform with required specifications.")]
+        WU_E_DRV_NOPROP_OR_LEGACY = 0x8024C002,
         [Description("The registry type read for the driver does not match the expected type.")]
         WU_E_DRV_REG_MISMATCH = 0x8024C003,
         [Description("The driver update is missing metadata.")]
