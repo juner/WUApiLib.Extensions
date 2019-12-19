@@ -3,7 +3,6 @@
     <ProjectGuid>{ACA39C22-E202-4518-ACF6-764B70392E8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <TargetFrameworks>net48;netcoreapp3.0</TargetFrameworks>
-    <NoWarn>3305</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Collections.Immutable" Version="1.7.0" />
@@ -12,15 +11,7 @@
     <PackageReference Include="System.Security.Principal.Windows" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="WUApiLib">
-      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </COMReference>
+    <COMReference Include="WUApiLib" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WUApiLib.Extensions.Async\WUApiLib.Extensions.Async.csproj" />

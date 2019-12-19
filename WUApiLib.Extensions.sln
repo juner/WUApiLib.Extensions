@@ -1,15 +1,22 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WUApiLib.Extensions.Async", "WUApiLib.Extensions.Async\WUApiLib.Extensions.Async.csproj", "{A24F4B1A-3F37-442B-BF5C-2E7AC9AD2FAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WUApiLib.Extensions.Async", "WUApiLib.Extensions.Async\WUApiLib.Extensions.Async.csproj", "{A24F4B1A-3F37-442B-BF5C-2E7AC9AD2FAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WUApiLib.Extensions.Async.UnitTest", "WUApiLib.Extensions.Async.UnitTest\WUApiLib.Extensions.Async.UnitTest.csproj", "{ACA39C22-E202-4518-ACF6-764B70392E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WUApiLib.Extensions.Async.UnitTest", "WUApiLib.Extensions.Async.UnitTest\WUApiLib.Extensions.Async.UnitTest.csproj", "{ACA39C22-E202-4518-ACF6-764B70392E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WUApiLib.Extensions", "WUApiLib.Extensions\WUApiLib.Extensions.csproj", "{ACFF0048-C65C-49E8-8799-129AD80BBEF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WUApiLib.Extensions", "WUApiLib.Extensions\WUApiLib.Extensions.csproj", "{ACFF0048-C65C-49E8-8799-129AD80BBEF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WUApiLib.Utility", "WUApiLib.Utility\WUApiLib.Utility.csproj", "{77F2F420-1548-42B3-9AC0-B2B886554BCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WUApiLib.Utility", "WUApiLib.Utility\WUApiLib.Utility.csproj", "{77F2F420-1548-42B3-9AC0-B2B886554BCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95E60753-F843-4DD4-876B-ADE707EED9D3}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +43,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5E804284-8191-4964-99F8-2978DBC9BE76}
 	EndGlobalSection
 EndGlobal

@@ -3,22 +3,12 @@
     <ProjectGuid>{A24F4B1A-3F37-442B-BF5C-2E7AC9AD2FAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <NoWarn>3305</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <Version>1.0.0.0</Version>
     <Authors>juner</Authors>
   </PropertyGroup>
   <ItemGroup>
-    <COMReference Include="WUApiLib">
-      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <Private>False</Private>
-    </COMReference>
+    <COMReference Include="WUApiLib" />
   </ItemGroup>
 </Project>

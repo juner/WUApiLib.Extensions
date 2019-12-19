@@ -3,18 +3,8 @@
     <ProjectGuid>{77F2F420-1548-42B3-9AC0-B2B886554BCD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <NoWarn>3305</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <COMReference Include="WUApiLib">
-      <Guid>{B596CC9F-56E5-419E-A622-E01BB457431E}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <Private>False</Private>
-    </COMReference>
+    <COMReference Include="WUApiLib" />
   </ItemGroup>
 </Project>
